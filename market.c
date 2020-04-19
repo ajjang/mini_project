@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "product.h"
 #include "manager.h"
+//#include "productStruct.h"
 #define DEBUG
 
 int main(){
