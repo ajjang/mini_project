@@ -33,7 +33,7 @@ void saveData(Product *product, int count){
 	
 	for(int i=0; i<count; i++)
 	{
-		if(product[i].price != -1){
+		if(product[i].sprice != -1){
 	        	fprintf(fp,"%-10s%-8d%-8d%-15d%-8d\n",product[i].name,product[i].weight,product[i].sprice,product[i].price,product[i].stars);
 	
 		}
@@ -67,7 +67,7 @@ void searchName(Product *product, int count){
 	printf("==========================================\n");
 	printf("name\tweight price\ttotal\tstars\n");
 	for(int i=0; i<count; i++){
-		if(product[i].price != -1){
+		if(product[i].sprice != -1){
 			if(strstr(product[i].name, search))
 				readProduct(product[i]);
 		}
@@ -82,7 +82,7 @@ void searchStandardPrice(Product *product, int count){
 	printf("==========================================\n");
 	printf("name\tweight price\ttotal\tstars\n");
 	for(int i=0; i<count; i++){
-		if(product[i].price != -1){
+		if(product[i].sprice != -1){
 			if(product[i].sprice == search) readProduct(product[i]);
 		}
 	}
@@ -97,7 +97,7 @@ void searchStar(Product *product, int count){
 	printf("=========================================\n");
 	printf("name\tweight price\ttotal\tstars\n");
 	for(int i=0; i<count; i++){
-		if(product[i].price != -1){
+		if(product[i].sprice != -1){
 			if(product[i].stars == search) readProduct(product[i]);
 		}
 	}
