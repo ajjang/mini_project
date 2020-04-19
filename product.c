@@ -1,7 +1,7 @@
 #include "product.h"
 
 
-//CRUD 함수들
+//ljCRUD 함수들
 int addProduct(Product *p){
         int num;
         printf("제품 이름은?>>");
@@ -61,5 +61,4 @@ void listProduct(Product *p, int curcount ){
 		readProduct(p[i]);
 	}
 }
-
 

@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include "product.h"
 #include "manager.h"
-//#include "productStruct.h"
 #define DEBUG
 
 int main(){
@@ -71,11 +69,9 @@ int main(){
 			scanf("%d",&ask);
 			
 			if(ask==1) searchName(product, count);
-			if(ask==2) searchStandardPrice(product, count);
-			if(ask==3) searchStar(product, count);
-			else {
-				//printf("잘못된 번호입니다.\n");
-			}
+			else if(ask==2) searchStandardPrice(product, count);
+			else if(ask==3) searchStar(product, count);
+			else printf("Wrong number!!\n");
 		}
 		else{
 			printf("Wrong numbber!!\n");
