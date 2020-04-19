@@ -12,7 +12,7 @@ int main(){
 		num= selectMenu();
 
 	        if(count==0){
-			if(num==2||num==3||num==4){
+			if(num==2||num==3||num==4||num==5||num==6){
 				printf("There is no product!\n");
 				continue;
 			}
@@ -22,24 +22,15 @@ int main(){
 			break;
 		}
 		else if(num==1){
-			#ifdef DEBUG
-				printf("Debug: call %s %d\n",__FILE__,__LINE__);
-			#endif
-				int curcount=addProduct(&product[count]);
-				count= count+curcount;
+			int curcount=addProduct(&product[count]);
+			count= count+curcount;
 		}
 		else if(num==2){
-			#ifdef DEBUG
-				printf("Debug: call %s %d\n",__FILE__,__LINE__);
-			#endif
-				listProduct(product, count);
+			listProduct(product, count);
 		}
 		else if(num==3){
-			#ifdef DEBUG
-				printf("Debug: call %s %d\n",__FILE__,__LINE__);
-			#endif
-				int ask= selectProduct(product, count);
-				updateProduct(&product[ask-1]);
+			int ask= selectProduct(product, count);
+			updateProduct(&product[ask-1]);
 		}
 		else if(num==4){
 			char answer;
@@ -47,12 +38,9 @@ int main(){
 			getchar();
 			scanf("%c",&answer);
 			if(answer=='y'){
-				#ifdef DEBUG
-					printf("Debug: call %s %d\n",__FILE__,__LINE__);
-				#endif
-					int ask= selectProduct(product, count);
-					deleteProduct(&product[ask-1]);
-					printf("삭제됨!\n");
+				int ask= selectProduct(product, count);
+				deleteProduct(&product[ask-1]);
+				printf("삭제됨!\n");
 			}
 			else printf("취소됨!\n");
 		}
@@ -71,10 +59,16 @@ int main(){
 			if(ask==1) searchName(product, count);
 			else if(ask==2) searchStandardPrice(product, count);
 			else if(ask==3) searchStar(product, count);
-			else printf("Wrong number!!\n");
+			else{
+				#ifdef DEBUG
+					printf("Debug: call %s %d\n",__FILE__,__LINE__);
+				#endif
+}
 		}
-		else{
-			printf("Wrong numbber!!\n");
+		else{	
+			#ifdef DEBUG
+				printf("Debug: call %s %d\n",__FILE__,__LINE__);
+			#endif
 		}
 	}
 	return 0;
