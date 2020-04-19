@@ -31,6 +31,4 @@ void listProduct(Product *p, int curcount);
 //int selectProduct(Product *p, int count); 
 //void searchProduct(Product *p, int count);
 
-//File I/O
-void saveData(Product p[]);
-int loadData(Product p[]);
+//File I/
