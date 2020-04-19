@@ -64,6 +64,18 @@ int main(){
 				printf("=> 저장 성공!\n");
 			}
 		}
+		else if(num==6){
+			int ask;
+			printf("무엇을 검색하시겠습니까?\n1.제품이름\n2.제품표준가격\n3.제품별점\n(번호 입력)>> ");
+			scanf("%d",&ask);
+			
+			if(ask==1) searchName(product, count);
+			if(ask==2) searchStandardPrice(product, count);
+			if(ask==3) searchStar(product, count);
+			else {
+				//printf("잘못된 번호입니다.\n");
+			}
+		}
 		else{
 			printf("Wrong numbber!!\n");
 		}

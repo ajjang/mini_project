@@ -29,7 +29,7 @@ int selectProduct(Product* product, int count){
 
 void saveData(Product *product, int count){
 	FILE *fp;
-	fp= fopen("product.txt", "wt");
+	fp= fopen("product.txt", "w");
 	
 	for(int i=0; i<count; i++)
 	{
@@ -40,22 +40,65 @@ void saveData(Product *product, int count){
 	}
 }
 
-int loadData(Product p[])
+int loadData(Product product[])
 {
-	int count= 0;
+	int count=0;
 	FILE *fp;
 
-	fp=("product.txt","rt");
+	fp=fopen("product.txt","r");
 	if(fp==NULL){
 		printf("=> 파일 없음!\n");
 		return 0;
 	}
-	for(int i=0;i<=count ;count++){
-	       	fscanf(fp,"%-10s%-8d%-8d%-15d%-8d\n",product[i].name,product[i].weight,product[i].sprice,product[i].price,product[i].stars);
+	for( ; ;count++){
+	       	fscanf(fp,"%s %d %d %d %d",product[count].name,&product[count].weight,&product[count].sprice,&product[count].price,&product[count].stars);
 			if(feof(fp)) break;
 	}
 	fclose(fp);
 	printf("=> 로딩 성공!\n");
 	return count;
 }
+
+void searchName(Product *product, int count){
+	char search[20];
+	printf("찾고싶은 제품이름은?: ");
+	scanf("%s",search);
+	
+	printf("==========================================\n");
+	printf("name\tweight price\ttotal\tstars\n");
+	for(int i=0; i<count; i++){
+		if(product[i].price != -1){
+			if(strstr(product[i].name, search))
+				readProduct(product[i]);
+		}
+	}
+}
+
+void searchStandardPrice(Product *product, int count){
+	int search;
+	printf("찾고싶은 제품 표준가격은?: ");
+	scanf("%d",&search);
+
+	printf("==========================================\n");
+	printf("name\tweight price\ttotal\tstars\n");
+	for(int i=0; i<count; i++){
+		if(product[i].price != -1){
+			if(product[i].sprice == search) readProduct(product[i]);
+		}
+	}
+}
+
+void searchStar(Product *product, int count){
+
+	int search;
+	printf("찾고싶은 제품 별점은?: ");
+	scanf("%d",&search);
+
+	printf("=========================================\n");
+	printf("name\tweight price\ttotal\tstars\n");
+	for(int i=0; i<count; i++){
+		if(product[i].price != -1){
+			if(product[i].stars == search) readProduct(product[i]);
+		}
+	}
 }
