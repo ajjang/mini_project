@@ -1,15 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
-typedef struct Product{
-    char name[20];
-    int weight;
-    int price;
-    int sprice; //표준가격
-    int stars;
-}Product;
-
-
+#include "productStruct.h"
 
 //메뉴번호를 고르는 함수, return 매뉴 번호
 //int selectMenu();
