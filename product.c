@@ -24,7 +24,7 @@ int addProduct(Product *p){
 }
 void readProduct(Product p){
 	if(p.sprice!=-1){
-        	printf("%-10s%-8d%-8d%-15d%-8d\n",p.name,p.weight,p.sprice,p.price,p.stars);
+        	printf("%-10s%-8d%-8d%-8d%-8d\n",p.name,p.weight,p.sprice,p.price,p.stars);
 	}else{
 		printf("삭제되었습니다..\n");
 	}
