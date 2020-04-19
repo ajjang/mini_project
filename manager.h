@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-//#include "productStruct.h"
+#include "product.h"
 int selectMenu();
 int selectProduct(Product* product, int count);
 int loadData(Product product[]);
