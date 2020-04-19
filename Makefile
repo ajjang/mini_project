@@ -11,4 +11,4 @@ $(DTARGET): $(OBJECTS)
 	$(CC) $(CLFAGS) -DEBUG -O $@ $^
 
 clean :
-	rm *.o market
+	rm *.o market product.txt
